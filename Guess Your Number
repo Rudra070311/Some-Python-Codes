@@ -1,0 +1,22 @@
+# Number Guessing Game
+#This is a simple Python program where the computer guesses a number you are thinking of between 0 and 100 using binary search.
+
+
+print("Please Think Of A Secret Number Between 0 and 100!!")
+low = 0
+high = 100
+ans = int((high + low)/2)
+
+while ans < 100 and ans > 0:
+    ans = int((high + low)/2)
+    an = print('Is your answer', ans,  '?')
+    nex = input("Enter 'h' to indicate the guess is too high. Enter 'l' to indicate the guess is too low. Enter 'c' to indicate I guessed correctly.")
+    if nex == "c":
+        print("Game over. Your secret number was: ",  ans)
+        break
+    elif nex == "h":
+        high = ans
+    elif nex == "l":
+        low = ans
+    else:
+        print("Sorry, I did not understand your input.")
