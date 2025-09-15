@@ -1,0 +1,63 @@
+#This is an interactive endless calculator built in Python.
+#It supports basic arithmetic operations and advanced features like square root, cube root, remainder, and integer division. The calculator runs continuously until the user exits, and includes a special rerun feature that restarts the program from any point.
+
+
+while True:
+    print("\n--- Calculator Started ---")
+    print("Operations: sqrt, cbrt, +, -, *, /, //, %, =, exit, rerun")
+
+    total = 0
+    first_run = True
+
+    while True:
+        if first_run:
+            num = input("\nEnter Your Number: ")
+
+            if num.lower() == "exit":
+                print("Goodbye!")
+                quit()
+            elif num.lower() == "rerun":
+                break   # restart the outer loop
+            else:
+                total = float(num)
+                first_run = False
+        else:
+            op = input("Enter Your Operation: ")
+
+            if op == "exit":
+                print("Goodbye!")
+                quit()
+            elif op == "rerun":
+                break   # restart outer loop
+            elif op == "=":
+                print("Final Result:", total)
+                break
+            elif op == "sqrt":
+                total = math.sqrt(total)
+            elif op == "cbrt":
+                total = total ** (1/3)
+            elif op in ["+", "-", "*", "/", "//", "%"]:
+                num2 = input("Enter Your Number: ")
+                if num2.lower() == "rerun":
+                    break
+                elif num2.lower() == "exit":
+                    print("Goodbye!")
+                    quit()
+                num2 = float(num2)
+
+                if op == "+": total += num2
+                elif op == "-": total -= num2
+                elif op == "*": total *= num2
+                elif op == "/":
+                    if num2 != 0: total /= num2
+                    else: print("Error! Division by zero.")
+                elif op == "//":
+                    if num2 != 0: total //= num2
+                    else: print("Error! Division by zero.")
+                elif op == "%":
+                    if num2 != 0: total %= num2
+                    else: print("Error! Division by zero.")
+            else:
+                print("Operator Not Defined")
+
+            print("Current Result:", total)
