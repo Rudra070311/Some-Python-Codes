@@ -55,7 +55,7 @@ while True:
     elif "i am fine" in userInp:
         print(s, "Nice to hear that! Ask your question.")
     elif "your name" in userInp:
-        print(s, "My name is Europa, your personal AI.")
+        print(s, "My name is Messiah, your personal AI.")
     elif "time" in userInp:
         print(s, "The time is", datetime.now().strftime("%H:%M:%S"))
     elif "date" in userInp:
